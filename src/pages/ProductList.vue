@@ -8,7 +8,6 @@
         <Search v-model="search" :load="loadProducts" />
         <!-- Table -->
         <Table />
-
         <!-- Pagination -->
         <Pagination :prevPage="prevPage" :nextPage="nextPage" :pagination="pagination" />
 

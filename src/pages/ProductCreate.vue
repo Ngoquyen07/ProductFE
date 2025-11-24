@@ -26,6 +26,11 @@
           />
         </div>
 
+<!--        <input type="file" accept="image/*" @change="previewImage">-->
+
+<!--        <img :src="imageUrl" v-if="imageUrl" style="width: 200px; margin-top: 10px;" alt="">-->
+
+
         <!-- Buttons -->
         <div class="d-flex gap-2">
           <button @click="submit" class="btn btn-primary">
@@ -68,5 +73,14 @@ async function submit() {
 
 function goBack() {
   router.push("/products");
+}
+
+const imageUrl = ref("");
+
+function previewImage(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  imageUrl.value = URL.createObjectURL(file); // tạo URL tạm thời để preview
 }
 </script>
