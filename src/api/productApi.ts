@@ -2,7 +2,7 @@ import axiosClient from "./axiosClient";
 
 const productApi = {
     getAll(params: any) {
-        return axiosClient.get("/products", { params });
+        return axiosClient.get("/products", { params }); // convert query  to string
     },
 
     getById(id: number) {

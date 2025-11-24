@@ -54,7 +54,7 @@ const name = ref("");
 const price = ref("");
 
 async function load() {
-  const res = await productApi.getById(route.params.id);
+  const res = await productApi.getById(parseInt(<string>route.params.id));
   name.value = res.data.data.name;
   price.value = res.data.data.price;
   console.log(res);
@@ -66,10 +66,11 @@ async function update() {
     return;
   }
 
-  await productApi.update(route.params.id, {
+  const res = await productApi.update(parseInt(<string>route.params.id), {
     name: name.value,
     price: price.value
   });
+  console.log(res);
 
   router.push("/products");
 }
